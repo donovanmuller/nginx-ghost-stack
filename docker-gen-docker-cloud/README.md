@@ -3,7 +3,8 @@
 This is an enhancment to the [docker-gen](https://github.com/jwilder/docker-gen) image that adds support
 for [Docker Cloud](https://cloud.docker.com).
 
-This image is used in context of [this]() post on using [JrCs/docker-letsencrypt-nginx-proxy-companion](https://github.com/JrCs/docker-letsencrypt-nginx-proxy-companion)
+This image is used in context of [this](https://blog.switchbit.io/developing-a-ghost-theme-with-gulp-part-5/) 
+post on using [JrCs/docker-letsencrypt-nginx-proxy-companion](https://github.com/JrCs/docker-letsencrypt-nginx-proxy-companion)
 to generate Let's Encrypt certificates for a Ghost specific stack. 
 
 # The problem

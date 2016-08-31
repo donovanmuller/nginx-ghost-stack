@@ -1,6 +1,6 @@
-nginx-ghost-proxy-config:
-  image: donovanmuller/nginx-ghost-proxy-configuration:1
-  command: echo "Nginx Ghost proxy configuration volume"
+nginx-ghost-proxy-template:
+  image: donovanmuller/nginx-ghost-proxy-template:1
+  command: echo "Nginx Ghost proxy template volume"
   autoredeploy: false
 
 letsencrypt-certs:
@@ -17,23 +17,23 @@ nginx-proxy:
     - "443:443"
   volumes_from:
     - letsencrypt-certs
-    - ghost-nginx-proxy-config
+    - nginx-ghost-proxy-template
 
 nginx-gen:
-  image: donovanmuller/docker-gen-docker-cloud:1
+  image: donovanmuller/docker-gen-docker-cloud:0.7.3
   volumes:
     - "/var/run/docker.sock:/tmp/docker.sock:ro"
   volumes_from:
     - nginx-proxy
-    - nginx-ghost-proxy-config
+    - nginx-ghost-proxy-template
   entrypoint: /usr/local/bin/docker-gen -notify-output -notify "./restart_service.sh" -watch -only-exposed -wait 10s:30s /etc/docker-gen/templates/nginx.tmpl /etc/nginx/conf.d/default.conf
   environment:
-    - NGINX_PROXY_SERVICE_ENV_VAR=nginx-proxy
+    - PROXY_SERVICE_ENV_VAR=nginx-proxy
   roles:
    - global
 
 letsencrypt-nginx-proxy:
-  image: donovanmuller/docker-letsencrypt-nginx-proxy-companion-docker-cloud:latest
+  image: donovanmuller/docker-letsencrypt-nginx-proxy-companion:latest
   volumes_from:
     - letsencrypt-certs
     - nginx-proxy

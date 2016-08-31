@@ -2,6 +2,8 @@
 
 A preconfigured Docker Cloud Stack for running Ghost blog Services.
 
+See [this blog post](https://blog.switchbit.io/developing-a-ghost-theme-with-gulp-part-5/) for more detail.
+
 ## Usage
 
 [![Deploy to Docker Cloud](https://files.cloud.docker.com/images/deploy-to-dockercloud.svg)](https://cloud.docker.com/stack/deploy/?repo=https://github.com/donovanmuller/nginx-ghost-stack)
@@ -32,7 +34,7 @@ and automatically reload the Nginx proxy (by redeploying the Nginx Service) with
 
 ##  Let's Encrypt
 
-The [docker-letsencrypt-nginx-proxy-companion-docker-cloud]() image is used to allow automatic creation and renewal
+The [docker-letsencrypt-nginx-proxy-companion](https://hub.docker.com/r/donovanmuller/docker-letsencrypt-nginx-proxy-companion/) image is used to allow automatic creation and renewal
 of Let'sd Encrypt issued certificates for proxied Ghost instances. The `docker-letsencrypt-nginx-proxy-companion-docker-cloud`
 image is a fork of [docker-letsencrypt-nginx-proxy-companion](https://github.com/JrCs/docker-letsencrypt-nginx-proxy-companion)
 but with support for Docker Cloud.
