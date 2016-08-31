@@ -1,0 +1,5 @@
+docker-gen-docker-cloud:
+  build: docker-gen-docker-cloud
+
+nginx-ghost-proxy-template:
+  build: nginx-ghost-proxy-template
